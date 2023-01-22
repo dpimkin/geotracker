@@ -2,11 +2,16 @@ package com.dpimkin.geotracker.deliveryfleet.mapper;
 
 import com.dpimkin.geotracker.deliveryfleet.model.CourierDocument;
 import om.dpimkin.geotracker.deliveryfleet.api.CourierDTO;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
-@Mapper
-public interface CourierMapper {
+@Component
+public class CourierMapper {
 
-    CourierDTO mapCourierDocument(CourierDocument document);
+    public CourierDTO mapCourierDocument(CourierDocument document) {
+        var result = new CourierDTO();
+        result.setId(document.getId());
+        result.setDescription(document.getDescription());
+        return result;
+    }
 
 }
