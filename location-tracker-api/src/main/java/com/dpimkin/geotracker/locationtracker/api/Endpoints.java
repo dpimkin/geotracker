@@ -6,3 +6,4 @@ import lombok.experimental.UtilityClass;
 public class Endpoints {
     public static final String TRACKER_ENDPOINT = "v1/tracker";
 }
+

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: delivery-fleet
+
+logging:
+  level:
+    io.lettuce: TRACE
+server:
+  port: 8080

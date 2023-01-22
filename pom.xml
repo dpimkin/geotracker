@@ -17,6 +17,8 @@
         <!-- encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
 
 <!--        <spring.boot.version>3.0.1</spring.boot.version>-->
         <spring.boot.version>2.7.8</spring.boot.version>
@@ -52,12 +54,28 @@
                 <artifactId>jsr305</artifactId>
                 <version>${jsr305.version}</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>com.dpimkin.geotracker</groupId>
+                <artifactId>location-tracker-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dpimkin.geotracker</groupId>
+                <artifactId>delivery-fleet-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <modules>
 <!--        <module>simple-geotracker</module>-->
+        <module>location-tracker-api</module>
         <module>location-tracker</module>
+        <module>delivery-fleet-api</module>
+        <module>delivery-fleet</module>
     </modules>
 
     <build>

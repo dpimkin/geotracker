@@ -19,3 +19,14 @@ services:
       - '6379:6379'
     restart: always
 
+  delivery_fleet:
+    container_name: delivery-fleet
+    image: dpimkin/delivery-fleet:1.0.0
+    links:
+      - tracker_redis:app_db
+    ports:
+      - '8080:8080'
+    restart: always
+    depends_on:
+      - tracker
+
