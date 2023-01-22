@@ -23,13 +23,10 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @ActiveProfiles("standalone-redis")
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class TrackerControllerTest {
-
     private static final int REDIS_PORT = 6379;
-
 
     @Autowired
     private WebTestClient webClient;
-
 
     @Container
     private static GenericContainer<?> REDIS = new GenericContainer<>(DockerImageName.parse("redis:5.0.3-alpine"))
@@ -43,19 +40,29 @@ class TrackerControllerTest {
 
     @Test
     void findCouriersNear_should() {
-        updateCourierPosition("42", 42.695084, 23.324925)
+        var expectedId = "42";
+        var expectedLat = 42.695084;
+        var expectedLong = 23.324925;
+        updateCourierPosition(expectedId, expectedLat, expectedLong)
                 .expectStatus()
                 .isAccepted();
 
-
-        var actualResult= findCouriersNear(42.686202, 23.326248, 5000)
+        findCouriersNear(42.686202, 23.326248, 5000)
                 .expectStatus()
                 .isOk()
-                .expectBodyList(CourierLocation.class);
-        actualResult.contains(CourierLocation.of("42", Location.of(new Point(42.695084, 23.324925))));
+                .expectBodyList(CourierLocation.class)
+                .hasSize(1)
+                .contains(CourierLocation.of(expectedId, Location.of(new Point(expectedLat, expectedLong))));
     }
 
-
+    @Test
+    void findCouriersWithin_should() {
+        findCouriersWithin(55.603113, 37.362218, 50000)
+                .expectStatus()
+                .isOk()
+                .expectBodyList(CourierLocation.class)
+                .hasSize(0);
+    }
 
     ResponseSpec updateCourierPosition(String id, double latitude, double longitude) {
         var requestBody = new UpdatePositionRequest();

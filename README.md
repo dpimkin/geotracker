@@ -8,3 +8,11 @@ Build
 ```
 
 
+
+
+Run
+---
+
+```bash
+docker-compose up
+```

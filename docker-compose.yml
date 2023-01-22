@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  tracker:
+    container_name: location-tracker
+    image: dpimkin/location-tracker:1.0.0
+    links:
+      - tracker_redis:app_db
+    ports:
+      - '8088:8088'
+    restart: always
+    depends_on:
+      - tracker_redis
+
+  tracker_redis:
+    container_name: location-tracker-redis
+    image: redis:5.0.3-alpine
+    ports:
+      - '6379:6379'
+    restart: always
+

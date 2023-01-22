@@ -1,6 +1,9 @@
 spring:
   application:
     name: location-tracker
+
 logging:
   level:
     io.lettuce: TRACE
+server:
+  port: 8088
