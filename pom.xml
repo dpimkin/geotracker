@@ -18,7 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
-        <spring.boot.version>3.0.1</spring.boot.version>
+<!--        <spring.boot.version>3.0.1</spring.boot.version>-->
+        <spring.boot.version>2.7.8</spring.boot.version>
         <testcontainers.version>1.17.6</testcontainers.version>
         <jsr305.version>3.0.2</jsr305.version>
         <geohash.version>1.4.0</geohash.version>
@@ -56,6 +57,7 @@
 
     <modules>
         <module>simple-geotracker</module>
+        <module>location-tracker</module>
     </modules>
 
     <build>

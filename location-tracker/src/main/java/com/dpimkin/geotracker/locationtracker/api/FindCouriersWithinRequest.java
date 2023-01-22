@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
-public class FindCouriersNearRequest {
+public class FindCouriersWithinRequest {
     Double latitude;
     Double longitude;
-    Integer distanceMeters;
+    Integer radiusMeters;
 }

@@ -27,6 +27,7 @@ import java.net.URI;
 
 import static com.dpimkin.geotracker.locationtracker.api.Endpoints.TRACKER_ENDPOINT;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+import static org.springframework.http.HttpStatus.ACCEPTED;
 
 @Testcontainers
 @ActiveProfiles("standalone-redis")
@@ -64,7 +65,7 @@ class AppTest {
     @Test
     void test() throws Exception {
         {
-            Assertions.assertEquals(updateCourierLocation("42", 42.695084, 23.324925), HttpStatus.OK);
+            Assertions.assertEquals(updateCourierLocation("42", 42.695084, 23.324925), ACCEPTED);
         }
 
 
@@ -72,7 +73,7 @@ class AppTest {
         ResponseEntity<String> response = testRestTemplate.
                 getForEntity(uri(TRACKER_ENDPOINT), String.class);
 
-        //System.out.println(response.getBody());
+
 
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);

@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface CourierLocationRepository extends CrudRepository<CourierLocation, String> {
-    List<CourierLocation> findByCurrentLocationPointNear(Point point, Distance distance);
+    List<CourierLocation> findByLocationPointNear(Point point, Distance distance);
     List<CourierLocation> findByLocationWithin(Circle circle);
 }
