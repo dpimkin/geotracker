@@ -1,6 +1,11 @@
 package om.dpimkin.geotracker.deliveryfleet.api;
 
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+
+@Data
 public class Disposition {
-    Double latitude;
-    Double longitude;
+    @NotNull Double latitude;
+    @NotNull Double longitude;
 }

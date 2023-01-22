@@ -26,8 +26,6 @@ public class MongoPreconditions implements ApplicationListener<ApplicationReadyE
         ensureUniqueIdempotencyKey().subscribe();
     }
 
-
-
     Mono<String> ensureUniqueIdempotencyKey() {
         log.info("ensureing unique idempotency key");
         return mongoOps.indexOps(IdempotentOperationDocument.class)
