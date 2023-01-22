@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: location-tracker
+logging:
+  level:
+    io.lettuce: TRACE
