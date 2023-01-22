@@ -63,6 +63,11 @@
             </dependency>
             <dependency>
                 <groupId>com.dpimkin.geotracker</groupId>
+                <artifactId>location-tracker-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dpimkin.geotracker</groupId>
                 <artifactId>delivery-fleet-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -71,8 +76,8 @@
     </dependencyManagement>
 
     <modules>
-<!--        <module>simple-geotracker</module>-->
         <module>location-tracker-api</module>
+        <module>location-tracker-client</module>
         <module>location-tracker</module>
         <module>delivery-fleet-api</module>
         <module>delivery-fleet</module>
@@ -96,8 +101,17 @@
                     <artifactId>dockerfile-maven-plugin</artifactId>
                     <version>1.4.13</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                </plugin>
             </plugins>
-
         </pluginManagement>
     </build>
 
